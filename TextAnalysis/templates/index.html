@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Analyzer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        #input_text {
+            width: 80%;
+            height: 200px;
+            resize: none;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        #result {
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <textarea id="input_text" rows="10" cols="50"></textarea>
+    <br>
+    <div class="button-container">
+        <button onclick="countCharacters()">Character Count</button>
+        <button onclick="countWords()">Word Count</button>
+        <button onclick="countSpaces()">Space Count</button>
+    </div>
+    <br>
+    <p id="result"></p>
+
+    <script>
+        function countCharacters() {
+            var inputText = document.getElementById('input_text').value;
+            $.post("/count_characters", { input_text: inputText }, function(data) {
+                document.getElementById('result').innerHTML = 'Total Characters: ' + data.character_count;
+            });
+        }
+
+        function countWords() {
+            var inputText = document.getElementById('input_text').value;
+            $.post("/count_words", { input_text: inputText }, function(data) {
+                document.getElementById('result').innerHTML = 'Total Words: ' + data.word_count;
+            });
+        }
+
+        function countSpaces() {
+            var inputText = document.getElementById('input_text').value;
+            $.post("/count_spaces", { input_text: inputText }, function(data) {
+                document.getElementById('result').innerHTML = 'Total Spaces: ' + data.space_count;
+            });
+        }
+    </script>
+</body>
+</html>
