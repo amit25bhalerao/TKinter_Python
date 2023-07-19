@@ -135,5 +135,5 @@ copy_button = tk.Button(button_frame, text="Copy", command=copy_to_clipboard)
 copy_button.pack(side="left", padx=5, pady=5)
 
 # Run the main event loop
-window.state("zoomed")
+window.state('zoomed')
 window.mainloop()

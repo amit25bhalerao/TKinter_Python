@@ -1,4 +1,4 @@
-('C:\\Users\\P7113583\\Desktop\\JSONFormatter\\build\\JSONFormatter\\PYZ-00.pyz',
+('C:\\Users\\P7113583\\Desktop\\TKinter_Python\\JSONFormatter\\build\\JSONFormatter\\PYZ-00.pyz',
  [('_compat_pickle',
    'C:\\Program Files\\Python311\\Lib\\_compat_pickle.py',
    'PYMODULE'),
