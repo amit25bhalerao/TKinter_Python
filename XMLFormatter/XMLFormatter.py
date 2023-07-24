@@ -5,6 +5,12 @@ import pyperclip
 import xml.dom.minidom as minidom
 
 
+# Function to set the window size to full screen
+def maximize_to_screen():
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    window.geometry(f"{screen_width}x{screen_height}")
+
 def format_xml():
     xml_data = input_text.get("1.0", "end").strip()
     if not xml_data:
@@ -116,11 +122,11 @@ window.title("XML Formatter")
 window.resizable(False, False)  # Fix the window size
 
 # Create the input text area
-input_text = tk.Text(window, height=60, width=117)
+input_text = tk.Text(window, height=40, width=100)
 input_text.grid(row=0, column=0, padx=10, pady=10)
 
 # Create the output text area
-output_text = tk.Text(window, height=60, width=117, state="disabled")
+output_text = tk.Text(window, height=40, width=100, state="disabled")
 output_text.grid(row=0, column=1, padx=10, pady=10)
 
 # Create the button frame
@@ -171,6 +177,8 @@ replace_entry.pack(side="left", padx=5, pady=5)
 search_replace_button = tk.Button(search_replace_frame, text="Search and Replace", command=search_replace)
 search_replace_button.pack(side="left", padx=5, pady=5)
 
+# # Call the function to maximize the window
+# maximize_to_screen()
+
 # Run the main event loop
-window.state("zoomed")
 window.mainloop()
